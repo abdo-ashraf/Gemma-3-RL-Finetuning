@@ -50,16 +50,16 @@ def soft_format_reward_func(completions, **kwargs) -> list[float]:
 # Reward function that counts XML tags and penalizes extra content
 def count_xml(text) -> float:
     count = 0.0
-    if text.count(f"{"<reasoning>"}\n") == 1:
+    if text.count("<reasoning>\n") == 1:
         count += 0.125
-    if text.count(f"\n{"</reasoning>"}\n") == 1:
+    if text.count("\n</reasoning>\n") == 1:
         count += 0.125
-    if text.count(f"\n{"<answer>"}\n") == 1:
+    if text.count("\n<answer>\n") == 1:
         count += 0.125
-        count -= len(text.split(f"\n{"</answer>"}\n")[-1]) * 0.001
-    if text.count(f"\n{"</answer>"}") == 1:
+        count -= len(text.split("\n</answer>\n")[-1]) * 0.001
+    if text.count("\n</answer>") == 1:
         count += 0.125
-        count -= (len(text.split(f"\n{"</answer>"}")[-1]) - 1) * 0.001
+        count -= (len(text.split("\n</answer>")[-1]) - 1) * 0.001
     return count
 
 
