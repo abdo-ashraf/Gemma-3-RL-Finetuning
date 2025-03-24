@@ -1,0 +1,14 @@
+{
+    "model_id": "google/gemma-3-1b-it",
+    "max_seq_length": 1024,
+    "lora_r": 8,
+    "lora_dropout": 0,
+    "seed": 3407,
+    "target_lora_modules":["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+    "output_dir": "output",
+    "max_steps": 250,
+    "logging_steps": 10,
+    "save_steps": 50,
+    "max_prompt_length": 256,
+    "learning_rate":1e-5
+}
