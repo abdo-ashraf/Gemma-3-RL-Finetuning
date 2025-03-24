@@ -3,7 +3,7 @@ from train import train
 
 def main():
     parser = argparse.ArgumentParser(description="Gemma-3 RL Finetuning")
-    parser.add_argument('--config_path', type=str, help='Learning rate for the optimizer')
+    parser.add_argument('--config_path', type=str, default="config.json", help='Config file path')
     
     args = parser.parse_args()
     
