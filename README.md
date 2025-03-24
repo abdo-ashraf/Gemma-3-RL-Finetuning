@@ -78,6 +78,48 @@ Reward functions guide reinforcement learning by scoring model outputs:
 - Trained models and logs are saved in the `outputs/` directory.
 - Modify `output_dir` in `config.json` to change the save location.
 
+## Fine-Tuning Results
+For same question and system prompt
+**System Prompt:**
+```
+You are given a problem.
+Think about the problem and provide your working out.
+Place it between <reasoning> and </reasoning>.
+Then, provide your solution between <answer></answer>
+```
+**Question:**
+```
+Betty is saving money for a new wallet which costs $100. Betty has only half of the money she needs. Her parents decided to give her $15 for that purpose, and her grandparents twice as much as her parents. How much more money does Betty need to buy the wallet?
+```
+
+### Before Fine-Tuning
+**Model Response:**
+```
+<answer>100.0</answer>
+```
+
+---
+
+### After Fine-Tuning
+**Model Response:**
+```
+<reasoning>
+Let the cost of the wallet be $100.
+Betty has half of the money she needs, so she has $\frac{1}{2} \times 100 = 50$.
+Her parents gave her $15.
+Her grandparents gave her twice as much as her parents, so grandparents gave her $2 \times 15 = 30$.
+The total amount of money her grandparents gave her is $30$.
+So, the total amount of money Betty has is $50 + 15 + 30 = 95$.
+The amount of money she needs is $100 - 95 = 5$.
+Therefore, Betty needs $5 more to buy the wallet.
+</reasoning>
+<answer>5</answer>
+```
+
+---
+
+This demonstrates that Fine-tuning significantly improved the model’s ability to break down the problem and provide a structured response with correct reasoning.
+
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
